@@ -27,6 +27,8 @@ int potOutputValueTwo = 0;
 
 int mycounter = 0;
 
+int loopDisplay = 0;
+
 
 // the setup function runs once when you press reset or power the board
 void setup() {
@@ -34,12 +36,17 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   pinMode(A8, INPUT);
   pinMode(A9, INPUT);
+  pinMode(12, OUTPUT);
   
   Serial.begin(9600);
 }
 
 // the loop function runs over and over again forever
 void loop() {
+
+  loopDisplay = !loopDisplay;
+  digitalWrite(12, loopDisplay);
+  
   // read the value from the sensor:
   sensorValueOne = analogRead(sensorPinOne);
   outputValueOne = map(sensorValueOne, 0, 1023, 0, 255);
@@ -56,7 +63,7 @@ void loop() {
   potInputValueTwo = analogRead(A9);
   potOutputValueTwo = map(potInputValueTwo, 0, 1023, 15, 100);
   
-  if (outputValueOne > 15 || outputValueTwo > 50 || outputValueThree > 50 || outputValueFour > 50 || outputValueFive > 50) 
+  if (outputValueOne > 50 || outputValueTwo > 50 || outputValueThree > 50 || outputValueFour > 50 || outputValueFive > 50) 
 {
   Serial.print(outputValueFive);
     Serial.print(" ");
@@ -86,8 +93,8 @@ void loop() {
 //  }
 
 digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-    delay(potOutputValueTwo);                       // wait for a second
+    delay(10);                       // wait for a second
     digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-    delay(potOutputValueTwo); 
+    delay(10); 
   }
 }
