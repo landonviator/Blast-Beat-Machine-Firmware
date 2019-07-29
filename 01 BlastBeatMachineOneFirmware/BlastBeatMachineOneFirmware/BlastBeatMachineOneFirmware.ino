@@ -52,6 +52,10 @@ void loop() {
   //pot
   potInputValueTwo = analogRead(A9);
   potOutputValueTwo = map(potInputValueTwo, 0, 1023, 5, 50);
+
+  if (potOutputValueTwo > 0){
+    Serial.println(potOutputValueTwo);
+  }
   
   if (outputValueOne > 50 || outputValueTwo > 50 || outputValueThree > 50 || outputValueFour > 50 || outputValueFive > 50) 
 {
