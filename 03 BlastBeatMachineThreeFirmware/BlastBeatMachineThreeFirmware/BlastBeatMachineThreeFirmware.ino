@@ -66,9 +66,7 @@ void loop() {
     Serial.print(" ");
     Serial.print(outputValueTwo);
     Serial.print(" ");
-    Serial.print(outputValueOne);
-    Serial.print(" ");
-    Serial.println(potOutputValueTwo);
+    Serial.println(outputValueOne);
   
 //  mycounter++;
 //  if (mycounter > 1)
