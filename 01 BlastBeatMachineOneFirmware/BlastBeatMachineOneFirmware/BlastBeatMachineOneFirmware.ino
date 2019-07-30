@@ -29,7 +29,7 @@ int potOutputValueTwo = 0;
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(A9, INPUT);
+  pinMode(A8, INPUT);
   
   Serial.begin(9600);
 }
@@ -50,12 +50,12 @@ void loop() {
   outputValueFive = map(sensorValueFive, 0, 1023, 0, 255);
 
   //pot
-  potInputValueTwo = analogRead(A9);
-  potOutputValueTwo = map(potInputValueTwo, 0, 1023, 5, 50);
+  potInputValueTwo = analogRead(A8);
+  potOutputValueTwo = map(potInputValueTwo, 0, 1023, 50, 5);
 
-  if (potOutputValueTwo > 0){
+  
     Serial.println(potOutputValueTwo);
-  }
+  
   
   if (outputValueOne > 50 || outputValueTwo > 50 || outputValueThree > 50 || outputValueFour > 50 || outputValueFive > 50) 
 {
